@@ -108,12 +108,12 @@ exports[`<Nodes /> should match snapshot 1`] = `
             role="region"
           >
             <div
-              className="MuiAccordionDetails-root css-pkg6kb-MuiAccordionDetails-root"
+              className="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
             >
               <p
-                className="MuiTypography-root MuiTypography-body1 css-1nkhxq8-MuiTypography-root"
+                className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
               >
-                there was an error in the query
+                Blocks go here
               </p>
             </div>
           </div>
@@ -212,12 +212,12 @@ exports[`<Nodes /> should match snapshot 1`] = `
             role="region"
           >
             <div
-              className="MuiAccordionDetails-root css-pkg6kb-MuiAccordionDetails-root"
+              className="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
             >
               <p
-                className="MuiTypography-root MuiTypography-body1 css-1nkhxq8-MuiTypography-root"
+                className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
               >
-                there was an error in the query
+                Blocks go here
               </p>
             </div>
           </div>
