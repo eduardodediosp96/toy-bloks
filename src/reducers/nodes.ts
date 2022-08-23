@@ -22,7 +22,6 @@ export const checkNodeBlocks = createAsyncThunk(
   "nodes/checkNodeBlocks",
   async (node: Node) => {
     const response = await fetch(`${node.url}/api/v1/blocks`);
-    console.log("response", response);
     const data: { data: Block[] } = await response.json();
     return data;
   }
@@ -34,16 +33,6 @@ export const checkNodesStatus = createAsyncThunk(
     const { dispatch } = thunkAPI;
     nodes.forEach((node) => {
       dispatch(checkNodeStatus(node));
-    });
-  }
-);
-
-export const checkNodesBlocks = createAsyncThunk(
-  "nodes/checkNodesStatus",
-  async (nodes: Node[], thunkAPI) => {
-    const { dispatch } = thunkAPI;
-    nodes.forEach((node) => {
-      dispatch(checkNodeBlocks(node));
     });
   }
 );
