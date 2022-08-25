@@ -4,7 +4,11 @@ import Node from "../components/Node";
 import { Typography, Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../store/configureStore";
-import { checkNodesStatus, selectNodes } from "../reducers/nodes";
+import {
+  checkNodesStatus,
+  checkNodeBlocks,
+  selectNodes,
+} from "../reducers/nodes";
 
 export const Nodes: React.FC = () => {
   const [expandedNodeURL, setExpandedNodeURL] = useState<null | string>(null);
@@ -16,8 +20,9 @@ export const Nodes: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function toggleNodeExpanded(node: NodeType) {
+  function toggleNodeExpanded(node: NodeType, open: boolean) {
     setExpandedNodeURL(node.url === expandedNodeURL ? null : node.url);
+    if (!open) dispatch(checkNodeBlocks(node));
   }
 
   return (
@@ -27,6 +32,7 @@ export const Nodes: React.FC = () => {
       </Typography>
       {nodes.map((node) => (
         <Node
+          data-testId={node.url}
           node={node}
           key={node.url}
           expanded={node.url === expandedNodeURL}

@@ -22,7 +22,7 @@ exports[`<Nodes /> should match snapshot 1`] = `
   >
     <div
       aria-expanded={false}
-      className="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-n997py-MuiButtonBase-root-MuiAccordionSummary-root"
+      className="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-1lizibx-MuiButtonBase-root-MuiAccordionSummary-root"
       onBlur={[Function]}
       onClick={[Function]}
       onContextMenu={[Function]}
@@ -54,7 +54,7 @@ exports[`<Nodes /> should match snapshot 1`] = `
               Node 1
             </h5>
             <h6
-              className="MuiTypography-root MuiTypography-subtitle1 css-gvet60-MuiTypography-root"
+              className="MuiTypography-root MuiTypography-subtitle1 css-1e5ka9b-MuiTypography-root"
             >
               https://thawing-springs-53971.herokuapp.com
             </h6>
@@ -66,7 +66,7 @@ exports[`<Nodes /> should match snapshot 1`] = `
               className="css-1y3s8m3"
             />
             <span
-              className="css-10g39r7"
+              className="css-krn38b"
             >
               OFFLINE
             </span>
@@ -109,13 +109,7 @@ exports[`<Nodes /> should match snapshot 1`] = `
           >
             <div
               className="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-            >
-              <p
-                className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-              >
-                Blocks go here
-              </p>
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -126,7 +120,7 @@ exports[`<Nodes /> should match snapshot 1`] = `
   >
     <div
       aria-expanded={false}
-      className="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-n997py-MuiButtonBase-root-MuiAccordionSummary-root"
+      className="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-1lizibx-MuiButtonBase-root-MuiAccordionSummary-root"
       onBlur={[Function]}
       onClick={[Function]}
       onContextMenu={[Function]}
@@ -158,7 +152,7 @@ exports[`<Nodes /> should match snapshot 1`] = `
               Node 2
             </h5>
             <h6
-              className="MuiTypography-root MuiTypography-subtitle1 css-gvet60-MuiTypography-root"
+              className="MuiTypography-root MuiTypography-subtitle1 css-1e5ka9b-MuiTypography-root"
             >
               https://secret-lowlands-62331.herokuapp.com
             </h6>
@@ -170,7 +164,7 @@ exports[`<Nodes /> should match snapshot 1`] = `
               className="css-1y3s8m3"
             />
             <span
-              className="css-10g39r7"
+              className="css-krn38b"
             >
               OFFLINE
             </span>
@@ -213,13 +207,7 @@ exports[`<Nodes /> should match snapshot 1`] = `
           >
             <div
               className="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-            >
-              <p
-                className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-              >
-                Blocks go here
-              </p>
-            </div>
+            />
           </div>
         </div>
       </div>

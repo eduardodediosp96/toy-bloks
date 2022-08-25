@@ -4,9 +4,11 @@ import configureMockStore, { MockStoreEnhanced } from "redux-mock-store";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { create } from "react-test-renderer";
-import ConnectedNodes from "./Nodes";
+import ConnectedNodes, { Nodes } from "./Nodes";
 import Node from "../components/Node";
 import { checkNodesStatus } from "../reducers/nodes";
+import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("<Nodes />", () => {
   const nodes = {
@@ -16,12 +18,22 @@ describe("<Nodes />", () => {
         online: false,
         name: "Node 1",
         loading: false,
+        blocks: {
+          status: true,
+          loading: false,
+          data: [],
+        },
       },
       {
         url: "https://secret-lowlands-62331.herokuapp.com",
         online: false,
         name: "Node 2",
         loading: false,
+        blocks: {
+          status: true,
+          loading: false,
+          data: [],
+        },
       },
     ],
   };
