@@ -6,16 +6,19 @@ import {
   Typography,
   AccordionDetails,
   Box,
+  LinearProgress,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import colors from "../constants/colors";
 import Status from "./Status";
 import { Node as NodeType } from "../types/Node";
+import { Block as BlockType } from "../types/Block";
+import Block from "./Block";
 
 type Props = {
   node: NodeType;
   expanded: boolean;
-  toggleNodeExpanded: (node: NodeType) => void;
+  toggleNodeExpanded: (node: NodeType, expanded: boolean) => void;
 };
 
 const AccordionRoot = styled(Accordion)({
@@ -60,11 +63,16 @@ const TypographySecondaryHeading = styled(Typography)(({ theme }) => ({
 }));
 
 const Node: React.FC<Props> = ({ node, expanded, toggleNodeExpanded }) => {
+  const { loading, status, data } = node.blocks || {
+    loading: false,
+    status: true,
+    data: [],
+  };
   return (
     <AccordionRoot
       elevation={3}
       expanded={expanded}
-      onChange={() => toggleNodeExpanded(node)}
+      onChange={() => toggleNodeExpanded(node, expanded)}
     >
       <AccordionSummaryContainer expandIcon={<ExpandMoreIcon />}>
         <BoxSummaryContent>
@@ -80,7 +88,11 @@ const Node: React.FC<Props> = ({ node, expanded, toggleNodeExpanded }) => {
         </BoxSummaryContent>
       </AccordionSummaryContainer>
       <AccordionDetails>
-        <Typography>Blocks go here</Typography>
+        {loading && <LinearProgress />}
+        {!loading && data.map((block: BlockType) => <Block block={block} />)}
+        {!status && !loading && (
+          <Typography color="error">Theres an error</Typography>
+        )}
       </AccordionDetails>
     </AccordionRoot>
   );

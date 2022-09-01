@@ -3,6 +3,7 @@ import initialState from "./initialState";
 import { Node } from "../types/Node";
 import { RootState } from "../store/configureStore";
 import fetch from "cross-fetch";
+import { Block } from "../types/Block";
 
 export interface NodesState {
   list: Node[];
@@ -13,6 +14,15 @@ export const checkNodeStatus = createAsyncThunk(
   async (node: Node) => {
     const response = await fetch(`${node.url}/api/v1/status`);
     const data: { node_name: string } = await response.json();
+    return data;
+  }
+);
+
+export const checkNodeBlocks = createAsyncThunk(
+  "nodes/checkNodeBlocks",
+  async (node: Node) => {
+    const response = await fetch(`${node.url}/api/v1/blocks`);
+    const data: { data: Block[] } = await response.json();
     return data;
   }
 );
@@ -49,6 +59,27 @@ export const nodesSlice = createSlice({
       if (node) {
         node.online = false;
         node.loading = false;
+      }
+    });
+    builder.addCase(checkNodeBlocks.pending, (state, action) => {
+      const node = state.list.find((n) => n.url === action.meta.arg.url);
+      if (node) node.blocks.loading = true;
+    });
+    builder.addCase(checkNodeBlocks.fulfilled, (state, action) => {
+      const node = state.list.find((n) => n.url === action.meta.arg.url);
+      if (node) {
+        node.blocks = {
+          loading: false,
+          status: true,
+          data: action.payload.data,
+        };
+      }
+    });
+    builder.addCase(checkNodeBlocks.rejected, (state, action) => {
+      const node = state.list.find((n) => n.url === action.meta.arg.url);
+      if (node) {
+        node.blocks.status = false;
+        node.blocks.loading = false;
       }
     });
   },

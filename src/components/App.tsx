@@ -1,17 +1,19 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Nodes from "../containers/Nodes";
-import NotFoundPage from "./NotFoundPage";
+const Nodes = lazy(() => import("../containers/Nodes"));
+const NotFoundPage = lazy(() => import("./NotFoundPage"));
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Nodes} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </Router>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Nodes} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Router>
+    </Suspense>
   );
 };
 
